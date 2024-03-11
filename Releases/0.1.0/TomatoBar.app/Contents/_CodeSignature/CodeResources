@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		TfzqYS5+If2TNblK9JkRMtQ/WuU=
+		EcqnS4Pp5lS62CUEN3bEKPCpllQ=
 		</data>
 		<key>Resources/KeyboardShortcuts_KeyboardShortcuts.bundle/Contents/Info.plist</key>
 		<data>
-		qAXVlEA2tMh3/LxRd5jrFoyo49A=
+		bw3WAWA8acB1WtxAXUNyzig/v2Q=
 		</data>
 		<key>Resources/KeyboardShortcuts_KeyboardShortcuts.bundle/Contents/Resources/ar.lproj/Localizable.strings</key>
 		<dict>
@@ -133,26 +133,6 @@
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Info.plist</key>
-		<data>
-		nVr9WpudyaXXVpvPQhU1bj4rOiA=
-		</data>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLogin.entitlements</key>
-		<data>
-		EPWnZClCepLXTlRBQz8jOgCUyHo=
-		</data>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLoginHelper-with-runtime.zip</key>
-		<data>
-		ENUoxt0NXRKqIzXtfZ4+zjsLWfA=
-		</data>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLoginHelper.zip</key>
-		<data>
-		XHEUmESAY3dj/Og1p0TdBMdYn6Y=
-		</data>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh</key>
-		<data>
-		zzrivka5COZUwQCrZGPm674x+28=
-		</data>
 		<key>Resources/en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
@@ -178,19 +158,19 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			lMyxZwOuFohh+Fcknez4IbkEo/A=
+			jKSMMJN5Twe/jkzIxzpO8D0qKlM=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"94ccb16703ae168861f857249decf821b904a3f0" or cdhash H"2df8f77ca131cd10508992f453212709099ea525"</string>
+			<string>identifier "com.apple.dt.runtime.swiftConcurrency" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: alexandergblack@outlook.com (4U3649S36F)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>Library/LoginItems/LaunchAtLoginHelper.app</key>
 		<dict>
 			<key>cdhash</key>
 			<data>
-			ydP7QrAiKGyNxLgSK21LRW2+tmQ=
+			X1S6GnIM4WZeOajZ+9rMzKsrqjE=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"c9d3fb42b022286c8dc4b8122b6d4b456dbeb664" or cdhash H"98523cfb89a01ff064b21206b7ae867ec45a2994"</string>
+			<string>identifier "com.github.algabl.TomatoBar-LaunchAtLoginHelper" and anchor apple generic and certificate leaf[subject.CN] = "Apple Development: alexandergblack@outlook.com (4U3649S36F)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 		</dict>
 		<key>Resources/AppIcon.icns</key>
 		<dict>
@@ -203,14 +183,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qSq41HaJiCSdUIOpSXlS9BzWQKhpaTfkwFaqHqIahYw=
+			iLeC2aMtb3atBjZ0KlOJcVcd3eN+SQJC8cj10Npq+Ec=
 			</data>
 		</dict>
 		<key>Resources/KeyboardShortcuts_KeyboardShortcuts.bundle/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OIu3E3bbohMToXtv3HnTQOBF+jeLcxIxcMTGuAbMgp8=
+			e1DunxeLconWVy1SJZ5Unus5hOwxuKOEGWF1+FRyeSo=
 			</data>
 		</dict>
 		<key>Resources/KeyboardShortcuts_KeyboardShortcuts.bundle/Contents/Resources/ar.lproj/Localizable.strings</key>
@@ -329,41 +309,6 @@
 			</data>
 			<key>optional</key>
 			<true/>
-		</dict>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Info.plist</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			YBQoMI2UeaAprfwy5pbBL/t2uiKttjTJizxiGcnVziI=
-			</data>
-		</dict>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLogin.entitlements</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			t0bHSyAeavTghk+9H09in5YVan7EtyCLyZXQpQibtZI=
-			</data>
-		</dict>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLoginHelper-with-runtime.zip</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			mO9Va0kOAvQIShHYoHwzqIAXepgWs1WIWhH1jJWHbWI=
-			</data>
-		</dict>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLoginHelper.zip</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Cj0JQ4+1lYAtVUzgp8S6jh0tkdUXA2KtyWXagucNdMs=
-			</data>
-		</dict>
-		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Et+GggviyujGnXLody9lxXeAgPqM3DTWiCqJbrDZujk=
-			</data>
 		</dict>
 		<key>Resources/en.lproj/Localizable.strings</key>
 		<dict>

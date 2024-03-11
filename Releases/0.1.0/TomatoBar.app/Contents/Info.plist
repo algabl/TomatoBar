@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>23A339</string>
+	<string>23B92</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.github.ivoronin.TomatoBar</string>
+	<string>com.github.algabl.TomatoBar</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -50,15 +50,15 @@
 	<key>DTPlatformName</key>
 	<string>macosx</string>
 	<key>DTPlatformVersion</key>
-	<string>14.0</string>
+	<string>14.4</string>
 	<key>DTSDKBuild</key>
-	<string>23A5257p</string>
+	<string>23E208</string>
 	<key>DTSDKName</key>
-	<string>macosx14.0</string>
+	<string>macosx14.4</string>
 	<key>DTXcode</key>
-	<string>1500</string>
+	<string>1530</string>
 	<key>DTXcodeBuild</key>
-	<string>15A5160n</string>
+	<string>15E204a</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>

@@ -10,7 +10,8 @@
 "SettingsView.showTimerInMenuBar.label" = "在菜单栏中显示计时器";
 "SettingsView.launchAtLogin.label" = "登录时启动";
 "SoundsView.isWindupEnabled.label" = "发条声";
-"SoundsView.isDingEnabled.label" = "叮";
+"SoundsView.isWorkDingEnabled.label" = "工作丁";
+"SoundsView.isRestDingEnabled.label" = "休息叮";
 "SoundsView.isTickingEnabled.label" = "滴答声";
 "TBPopoverView.start.label" = "开始";
 "TBPopoverView.stop.label" = "停止";

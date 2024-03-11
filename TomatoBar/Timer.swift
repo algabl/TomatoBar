@@ -54,6 +54,7 @@ class TBTimer: ObservableObject {
             !self.stopAfterBreak
         }
         stateMachine.addRoutes(event: .skipRest, transitions: [.rest => .work])
+        stateMachine.addRoutes(event: .skipWork, transitions: [.work => .rest])
 
         /*
          * "Finish" handlers are called when time interval ended
@@ -114,10 +115,24 @@ class TBTimer: ObservableObject {
     func startStop() {
         stateMachine <-! .startStop
     }
-
+    
+    
     func skipRest() {
         stateMachine <-! .skipRest
     }
+    
+    func skipWork() {
+        stateMachine <-! .skipWork
+    }
+    
+    func skipAny() {
+        if stateMachine.state == .rest {
+            skipRest()
+        } else if stateMachine.state == .work{
+            skipWork()
+        }
+    }
+
 
     func updateTimeLeft() {
         timeLeftString = timerFormatter.string(from: Date(), to: finishTime)!
@@ -182,16 +197,18 @@ class TBTimer: ObservableObject {
         startTimer(seconds: workIntervalLength * 60)
     }
 
-    private func onWorkFinish(context _: TBStateMachine.Context) {
+    private func onWorkFinish(context ctx: TBStateMachine.Context) {
         consecutiveWorkIntervals += 1
-        player.playDing()
+        if ctx.event != .skipWork {
+            player.playWorkDing()
+        }
     }
 
     private func onWorkEnd(context _: TBStateMachine.Context) {
         player.stopTicking()
     }
 
-    private func onRestStart(context _: TBStateMachine.Context) {
+    private func onRestStart(context ctx: TBStateMachine.Context) {
         var body = NSLocalizedString("TBTimer.onRestStart.short.body", comment: "Short break body")
         var length = shortRestIntervalLength
         var imgName = NSImage.Name.shortRest
@@ -211,6 +228,7 @@ class TBTimer: ObservableObject {
     }
 
     private func onRestFinish(context ctx: TBStateMachine.Context) {
+        
         if ctx.event == .skipRest {
             return
         }
@@ -219,7 +237,9 @@ class TBTimer: ObservableObject {
             body: NSLocalizedString("TBTimer.onRestFinish.body", comment: "Break is over body"),
             category: .restFinished
         )
+        player.playRestDing()
     }
+
 
     private func onIdleStart(context _: TBStateMachine.Context) {
         stopTimer()

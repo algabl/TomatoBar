@@ -70,6 +70,7 @@ private struct SettingsView: View {
                                        comment: "Stop after break label"))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }.toggleStyle(.switch)
+            
             Toggle(isOn: $timer.showTimerInMenuBar) {
                 Text(NSLocalizedString("SettingsView.showTimerInMenuBar.label",
                                        comment: "Show timer in menu bar label"))
@@ -114,9 +115,12 @@ private struct SoundsView: View {
             Text(NSLocalizedString("SoundsView.isWindupEnabled.label",
                                    comment: "Windup label"))
             VolumeSlider(volume: $player.windupVolume)
-            Text(NSLocalizedString("SoundsView.isDingEnabled.label",
-                                   comment: "Ding label"))
-            VolumeSlider(volume: $player.dingVolume)
+            Text(NSLocalizedString("SoundsView.isWorkDingEnabled.label",
+                                   comment: "Work ding label"))
+            VolumeSlider(volume: $player.workDingVolume)
+            Text(NSLocalizedString("SoundsView.isRestDingEnabled.label",
+                                   comment: "Rest ding label"))
+            VolumeSlider(volume: $player.restDingVolume)
             Text(NSLocalizedString("SoundsView.isTickingEnabled.label",
                                    comment: "Ticking label"))
             VolumeSlider(volume: $player.tickingVolume)
@@ -133,34 +137,41 @@ struct TBPopoverView: View {
     @ObservedObject var timer = TBTimer()
     @State private var buttonHovered = false
     @State private var activeChildView = ChildView.intervals
-
+    
     private var startLabel = NSLocalizedString("TBPopoverView.start.label", comment: "Start label")
     private var stopLabel = NSLocalizedString("TBPopoverView.stop.label", comment: "Stop label")
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Button {
-                timer.startStop()
-                TBStatusItem.shared.closePopover(nil)
-            } label: {
-                Text(timer.timer != nil ?
-                     (buttonHovered ? stopLabel : timer.timeLeftString) :
-                        startLabel)
+            HStack() {
+                Button {
+                    timer.startStop()
+                    TBStatusItem.shared.closePopover(nil)
+                } label: {
+                    Text(timer.timer != nil ?
+                         (buttonHovered ? stopLabel : timer.timeLeftString) :
+                            startLabel)
                     /*
-                      When appearance is set to "Dark" and accent color is set to "Graphite"
-                      "defaultAction" button label's color is set to the same color as the
-                      button, making the button look blank. #24
+                     When appearance is set to "Dark" and accent color is set to "Graphite"
+                     "defaultAction" button label's color is set to the same color as the
+                     button, making the button look blank. #24
                      */
                     .foregroundColor(Color.white)
                     .font(.system(.body).monospacedDigit())
                     .frame(maxWidth: .infinity)
-            }
-            .onHover { over in
-                buttonHovered = over
+                }
+                .onHover { over in
+                    buttonHovered = over
+                }
+                Button {
+                    timer.skipAny()
+                } label: {
+                    Image(systemName: "forward.end.fill")
+                }
             }
             .controlSize(.large)
             .keyboardShortcut(.defaultAction)
-
+            
             Picker("", selection: $activeChildView) {
                 Text(NSLocalizedString("TBPopoverView.intervals.label",
                                        comment: "Intervals label")).tag(ChildView.intervals)
@@ -172,7 +183,7 @@ struct TBPopoverView: View {
             .labelsHidden()
             .frame(maxWidth: .infinity)
             .pickerStyle(.segmented)
-
+            
             GroupBox {
                 switch activeChildView {
                 case .intervals:
@@ -183,7 +194,7 @@ struct TBPopoverView: View {
                     SoundsView().environmentObject(timer.player)
                 }
             }
-
+            
             Group {
                 Button {
                     NSApp.activate(ignoringOtherApps: true)
@@ -208,29 +219,30 @@ struct TBPopoverView: View {
                 .keyboardShortcut("q")
             }
         }
-        #if DEBUG
-            /*
-             After several hours of Googling and trying various StackOverflow
-             recipes I still haven't figured a reliable way to auto resize
-             popover to fit all it's contents (pull requests are welcome!).
-             The following code block is used to determine the optimal
-             geometry of the popover.
-             */
-            .overlay(
-                GeometryReader { proxy in
-                    debugSize(proxy: proxy)
-                }
-            )
-        #endif
-            /* Use values from GeometryReader */
-//            .frame(width: 240, height: 276)
-            .padding(12)
+#if DEBUG
+        /*
+         After several hours of Googling and trying various StackOverflow
+         recipes I still haven't figured a reliable way to auto resize
+         popover to fit all it's contents (pull requests are welcome!).
+         The following code block is used to determine the optimal
+         geometry of the popover.
+         */
+        .overlay(
+            GeometryReader { proxy in
+                debugSize(proxy: proxy)
+            }
+        )
+#endif
+        /* Use values from GeometryReader */
+        //            .frame(width: 240, height: 276)
+        .padding(12)
     }
-}
-
+    
+    
 #if DEBUG
     func debugSize(proxy: GeometryProxy) -> some View {
         print("Optimal popover size:", proxy.size)
         return Color.clear
     }
 #endif
+}
